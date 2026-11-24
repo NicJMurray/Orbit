@@ -49,7 +49,7 @@ export function ExampleWork() {
           <div className="case-insight"><span>What the audit found</span><p>{current.finding}</p></div>
           <div className="case-insight"><span>What to do next</span><p>{current.action}</p></div>
           {current.openDemo ? (
-            <a className="button button-lime" href={AUDIT_URL} target="_blank" rel="noopener">Open the full sample audit</a>
+            <a className="button button-lime" href={AUDIT_URL}>Open the full sample audit</a>
           ) : <a className="button button-lime" href="/contact">Discuss an audit</a>}
         </div>
       </dialog>

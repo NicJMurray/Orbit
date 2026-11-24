@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Globe } from "../components/orbit/Globe";
 import { ExampleWork } from "../components/orbit/ExampleWork";
 import { Contact } from "../components/orbit/Contact";
-import { AUDIT_PILLARS, AUDIT_URL, FAQ } from "../lib/site-content";
+import { AUDIT_DOWNLOAD_URL, AUDIT_PILLARS, AUDIT_URL, FAQ } from "../lib/site-content";
 
 export const metadata: Metadata = { alternates: { canonical: "/" } };
 
@@ -83,7 +83,7 @@ export default function Home() {
             <h1 id="hero-title">Paid search.<br />In full <em>view.</em></h1>
             <p className="hero-intro">See what’s working, where spend is leaking and what to fix first. Get an interactive audit your team can explore, share and keep.</p>
             <div className="hero-actions">
-              <a className="button button-lime" href={AUDIT_URL} target="_blank" rel="noopener">Explore the demo</a>
+              <a className="button button-lime" href={AUDIT_URL}>Explore the demo</a>
               <a className="button button-outline" href="#contact">Discuss an audit</a>
             </div>
             <p className="hero-detail">For agencies and in-house teams.</p>
@@ -137,8 +137,8 @@ export default function Home() {
               <p>12 markets, campaign drilldowns and a 90-day plan in a single file.</p>
             </div>
             <div className="download-actions">
-              <a className="button button-outline" href={AUDIT_URL} target="_blank" rel="noopener">Open report</a>
-              <a className="button button-lime" href={AUDIT_URL} download="Orbit-Audit-Sample.html">Download HTML</a>
+              <a className="button button-outline" href={AUDIT_URL}>Open report</a>
+              <a className="button button-lime" href={AUDIT_DOWNLOAD_URL} download="Orbit-Audit-Sample.html">Download HTML</a>
             </div>
           </div>
         </div>

@@ -1,4 +1,5 @@
-export const AUDIT_URL = "/alder-orbit-audit.html";
+export const AUDIT_URL = "/examples/alder-and-orbit";
+export const AUDIT_DOWNLOAD_URL = "/alder-orbit-audit.html";
 
 export const AUDIT_PILLARS = [
   {
