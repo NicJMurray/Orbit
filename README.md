@@ -8,6 +8,6 @@ The marketing site for Orbit Audit, served at https://orbit.njmurray.com/. The r
 - Contact UI: `components/orbit/ContactForm.tsx`; enquiry processing: `app/api/enquiries/route.ts`.
 - Search metadata: `app/layout.tsx`; crawler files: `public/robots.txt` and `public/sitemap.xml`.
 
-Use Node 22.13 or later. Run `npm ci` to install dependencies and `npm run build` to validate a production build. See the deployment notes in the repository for Cloudflare and form configuration.
+Use Node 22.13 or later. Run `npm ci` to install dependencies and `npm run build` to validate a production build. See [DEPLOYMENT.md](DEPLOYMENT.md) for Cloudflare and form configuration.
 
-The enquiry database and the recipient address are configured in Cloudflare and never committed here. Only fictional examples belong in `public/`; do not add client exports, API keys, or contact submissions.
+Enquiry records and the recipient address stay in Cloudflare and are never committed here. Only fictional examples belong in `public/`; do not add client exports, API keys, or contact submissions.

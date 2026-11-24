@@ -1,0 +1,17 @@
+{
+  "name": "orbit-audit",
+  "main": "./worker/index.ts",
+  "compatibility_date": "2026-05-15",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "workers_dev": false,
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "orbit-audit-enquiries",
+      "database_id": "2cce6ca4-8f57-40ae-987c-574286b90858",
+      "migrations_dir": "migrations"
+    }
+  ]
+}

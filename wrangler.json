@@ -1,0 +1,22 @@
+{
+  "name": "orbit-audit",
+  "compatibility_date": "2026-05-15",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "orbit-audit-enquiries",
+      "database_id": "2cce6ca4-8f57-40ae-987c-574286b90858",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "pages_build_output_dir": "./dist/client",
+  "services": [
+    {
+      "binding": "ENQUIRY_MAILER",
+      "service": "orbit-audit-mailer"
+    }
+  ]
+}
