@@ -9,7 +9,15 @@ export default {
       return Response.redirect(production + url.pathname + url.search, 301);
     }
 
-    if (url.pathname.endsWith(".html") || url.pathname === "/robots.txt" ||
+    // Pages serves HTML assets at extensionless URLs. Handle both forms here
+    // so existing links and the Download HTML button keep working.
+    if (url.pathname === "/alder-orbit-audit.html" || url.pathname === "/alder-orbit-audit") {
+      if (env.ASSETS) {
+        url.pathname = "/alder-orbit-audit";
+        return env.ASSETS.fetch(new Request(url, request));
+      }
+    }
+    if (url.pathname === "/robots.txt" ||
         url.pathname === "/sitemap.xml" || /^\/(?:_next|work|fonts)\//.test(url.pathname) ||
         url.pathname === "/favicon.svg") {
       if (env.ASSETS) return env.ASSETS.fetch(request);
