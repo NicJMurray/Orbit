@@ -1,6 +1,6 @@
-# Orbit Audit
+# Orbit Audits
 
-The marketing site for Orbit Audit, served at https://orbit.njmurray.com/. The repository is the source of truth; make site changes in GitHub and review them in a pull request before merging to `main`.
+The marketing site for Orbit Audits, served at https://orbit.njmurray.com/. The repository is the source of truth; make site changes in GitHub and review them in a pull request before merging to `main`.
 
 - Homepage: `app/page.tsx`; shared copy: `lib/site-content.ts`.
 - Interactive globe: `components/orbit/Globe.tsx`.

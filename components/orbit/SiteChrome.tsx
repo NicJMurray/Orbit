@@ -17,7 +17,7 @@ export function Mark({ size = 33 }: { size?: number }) {
 }
 
 export function Wordmark() {
-  return <a className="wordmark" href="/" aria-label="Orbit Audit home"><Mark /><span>Orbit<span className="wordmark-audit"> Audit</span><span className="brand-period">.</span></span></a>;
+  return <a className="wordmark" href="/" aria-label="Orbit Audits home"><Mark /><span>Orbit<span className="wordmark-audit"> Audits</span><span className="brand-period">.</span></span></a>;
 }
 
 export function SiteHeader() {
@@ -51,7 +51,7 @@ export function SiteFooter() {
         </nav>
       </div>
       <div className="wrap footer-note">
-        <span>© {new Date().getUTCFullYear()} Orbit Audit</span>
+        <span>© {new Date().getUTCFullYear()} Orbit Audits</span>
         <span>Map geometry: Natural Earth</span>
       </div>
     </footer>
