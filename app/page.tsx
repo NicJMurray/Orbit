@@ -72,7 +72,7 @@ export default function Home() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org",
         "@type": "Organization",
-        name: "Orbit Audit",
+        name: "Orbit Audits",
         url: "https://orbit.njmurray.com/",
         description: "Independent Google Ads audits for agencies and in-house marketing teams.",
       }) }} />
@@ -138,7 +138,7 @@ export default function Home() {
             </div>
             <div className="download-actions">
               <a className="button button-outline" href={AUDIT_URL}>Open report</a>
-              <a className="button button-lime" href={AUDIT_DOWNLOAD_URL} download="Orbit-Audit-Sample.html">Download HTML</a>
+              <a className="button button-lime" href={AUDIT_DOWNLOAD_URL} download="Orbit-Audits-Sample.html">Download HTML</a>
             </div>
           </div>
         </div>

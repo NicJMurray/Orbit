@@ -27,7 +27,7 @@ export async function deliverEnquiry(env: Cloudflare.Env, id: string) {
       from: FROM,
       to: ENQUIRY_TO,
       replyTo: row.email,
-      subject: "New Orbit Audit enquiry",
+      subject: "New Orbit Audits enquiry",
       text: [
         "A new enquiry was submitted on orbit.njmurray.com.",
         "",
@@ -47,7 +47,7 @@ export async function deliverEnquiry(env: Cloudflare.Env, id: string) {
     ).bind(Date.now(), messageId ?? null, row.id).run();
   } catch (error) {
     const code = (error as { code?: string })?.code;
-    console.warn("Orbit Audit: enquiry notification pending", { id: row.id, code });
+    console.warn("Orbit Audits: enquiry notification pending", { id: row.id, code });
     const wait = Math.min(24 * 60 * 60_000, FIFTEEN_MINUTES * 2 ** Math.min(row.notification_attempts - 1, 7));
     await DB.prepare("UPDATE enquiries SET notification_next_at = ? WHERE id = ?")
       .bind(Date.now() + wait, row.id).run();

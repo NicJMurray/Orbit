@@ -27,7 +27,7 @@ export async function POST(req: Request) {
   const site = req.headers.get("sec-fetch-site");
   const origin = req.headers.get("origin");
   if (site === "cross-site" || site === "same-site" || (origin && origin !== new URL(req.url).origin)) {
-    return reply({ message: "Please submit the form from Orbit Audit." }, 403);
+    return reply({ message: "Please submit the form from Orbit Audits." }, 403);
   }
   const type = req.headers.get("content-type")?.split(";")[0].trim();
   if (type !== "application/json" && type !== "application/x-www-form-urlencoded") {
@@ -77,7 +77,7 @@ export async function POST(req: Request) {
       "INSERT INTO enquiries (id, name, email, company, interest, message, received_at) VALUES (?, ?, ?, ?, ?, ?, ?)",
     ).bind(id, data.name, data.email.toLowerCase(), data.company, data.interest, data.message, Date.now()).run();
   } catch {
-    console.error("Orbit Audit: could not record enquiry");
+    console.error("Orbit Audits: could not record enquiry");
     return reply({ message: "Your enquiry couldn’t be saved. Please try again shortly." }, 503);
   }
   // Storage is the receipt; an email outage leaves the enquiry queued for retry.
@@ -88,7 +88,7 @@ export async function POST(req: Request) {
       body: JSON.stringify({ id }),
     }).then(response => {
       if (!response.ok) throw new Error("Mailer unavailable");
-    }).catch(() => console.warn("Orbit Audit: notification retry required", { id }));
+    }).catch(() => console.warn("Orbit Audits: notification retry required", { id }));
   }
   return type === "application/json" ? reply({ ok: true }, 201) : redirect();
 }
