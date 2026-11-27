@@ -1,5 +1,6 @@
 import { ContactForm } from "./ContactForm";
 import type { Interest } from "../../lib/enquiry";
+import { ABOUT_URL } from "../../lib/site-content";
 
 export function Contact({ initialSent = false, initialInterest, standalone = false }: { initialSent?: boolean; initialInterest?: Interest; standalone?: boolean }) {
   const Title = standalone ? "h1" : "h2";
@@ -9,6 +10,7 @@ export function Contact({ initialSent = false, initialInterest, standalone = fal
         <div className="contact-copy">
           <Title id="contact-title">Get a fixed quote<span className="green-period">.</span></Title>
           <p>Tell us what you need reviewed. We’ll reply with the scope, fee and timing.</p>
+          <a className="button button-outline" href={ABOUT_URL}>Meet Sam and Nic</a>
           <svg className="contact-orbits" viewBox="0 0 560 340" width="560" height="340" fill="none" aria-hidden="true">
             <g transform="rotate(-25 280 180)" stroke="currentColor">
               <ellipse cx="280" cy="180" rx="270" ry="72" />

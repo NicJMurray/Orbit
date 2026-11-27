@@ -34,19 +34,22 @@ export default function AboutPage() {
 
       <section className="light-section section-space" aria-labelledby="about-team-title">
         <div className="wrap">
-          <div className="section-heading">
+          <div className="section-heading split-heading">
             <h2 id="about-team-title">Who you’ll work with</h2>
+            <p>We developed the audit process together and have used it in our own client work.</p>
           </div>
           <div className="audit-card-grid">
             <article className="audit-card">
               <h3>Sam</h3>
               <p className="team-role">Scoping and client contact</p>
-              <p>Sam helps define what the audit needs to answer and is your point of contact throughout.</p>
+              <p>Sam works in agency paid media, planning campaigns, setting budgets and explaining performance to clients.</p>
+              <p>He helps you pin down what the audit should answer, whether you’re taking over an account or trying to understand a change in results. He’s your point of contact from the brief to delivery.</p>
             </article>
             <article className="audit-card">
               <h3>Nic</h3>
               <p className="team-role">Analysis and reporting</p>
-              <p>Nic reviews the account, builds the interactive report and prioritises the recommended fixes.</p>
+              <p>Nic focuses on Google Search account analysis. He looks at which searches are using the budget and which conversions the account uses to guide bidding.</p>
+              <p>He builds the interactive report, shows the evidence behind each recommendation and sets out which fixes to tackle first.</p>
             </article>
           </div>
         </div>
