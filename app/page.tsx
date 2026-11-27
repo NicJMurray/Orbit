@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Globe } from "../components/orbit/Globe";
 import { ExampleWork } from "../components/orbit/ExampleWork";
 import { Contact } from "../components/orbit/Contact";
-import { AUDIT_DOWNLOAD_URL, AUDIT_PILLARS, AUDIT_URL, FAQ } from "../lib/site-content";
+import { AGENCY_AUDIT_URL, AUDIT_DOWNLOAD_URL, AUDIT_EXAMPLE_URL, AUDIT_PILLARS, AUDIT_URL, FAQ } from "../lib/site-content";
 
 export const metadata: Metadata = { alternates: { canonical: "/" } };
 
@@ -79,8 +79,8 @@ export default function Home() {
       <section className="hero" aria-labelledby="hero-title">
         <div className="wrap hero-layout">
           <div className="hero-copy">
-            <p className="eyebrow"><span className="eyebrow-mark" /> Independent Google Ads audits</p>
-            <h1 id="hero-title">Paid search.<br />In full <em>view.</em></h1>
+            <p className="eyebrow"><span className="eyebrow-mark" /> Paid search. In full view.</p>
+            <h1 id="hero-title">Independent <br />Google Ads <em>audits</em></h1>
             <p className="hero-intro">See what’s working, where spend is leaking and what to fix first. Get an interactive audit your team can explore, share and keep.</p>
             <div className="hero-actions">
               <a className="button button-lime" href={AUDIT_URL}>Explore the demo</a>
@@ -133,11 +133,11 @@ export default function Home() {
           <ExampleWork />
           <div className="download-strip">
             <div>
-              <strong>See the complete Alder &amp; Orbit audit.</strong>
-              <p>12 markets, campaign drilldowns and a 90-day plan in a single file.</p>
+              <strong>The Alder &amp; Orbit audit</strong>
+              <p>Three findings and the 90-day plan they informed.</p>
             </div>
             <div className="download-actions">
-              <a className="button button-outline" href={AUDIT_URL}>Open report</a>
+              <a className="button button-outline" href={AUDIT_EXAMPLE_URL}>See the sample Google Ads audit</a>
               <a className="button button-lime" href={AUDIT_DOWNLOAD_URL} download="Orbit-Audits-Sample.html">Download HTML</a>
             </div>
           </div>
@@ -158,7 +158,7 @@ export default function Home() {
               <p className="eyebrow"><span className="eyebrow-mark" /> For agencies</p>
               <h3>You present it.<br />We do the digging.</h3>
               <p>Use an independent audit to strengthen a pitch, find quick wins in a new account or give an existing client a fresh perspective. We can deliver it under your branding.</p>
-              <a className="button button-outline" href="/contact">Talk about agency audits</a>
+              <a className="button button-outline" href={AGENCY_AUDIT_URL}>Explore white-label audits</a>
             </div>
             <div className="agency-art" aria-hidden="true">
               <div className="orbit-system"><i /><i /><i /><i /><span /></div>

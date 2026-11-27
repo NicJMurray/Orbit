@@ -2,7 +2,7 @@ import handler from "vinext/server/fetch-handler";
 import { AUDIT_DOWNLOAD_URL, AUDIT_URL } from "../lib/site-content";
 
 const auditAssetPath = "/alder-orbit-audit";
-const auditHomeLink = '<a href="/#work" aria-label="Back to Orbit Audit" style="color:var(--ink);font-weight:700;text-decoration:underline;text-underline-offset:.18em">← Orbit Audit</a>';
+const auditHomeLink = '<a href="/#work" aria-label="Back to Orbit Audits" style="color:var(--ink);font-weight:700;text-decoration:underline;text-underline-offset:.18em">← Orbit Audits</a>';
 
 export default {
   async fetch(request: Request, env: Cloudflare.Env, ctx: ExecutionContext) {
