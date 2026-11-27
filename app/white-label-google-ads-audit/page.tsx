@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { AUDIT_QUOTE_URLS } from "../../lib/enquiry";
 import { AGENCY_AUDIT_URL, ALDER_ORBIT_CASE, AUDIT_EXAMPLE_URL } from "../../lib/site-content";
 
 const title = "White-label Google Ads audits for agencies";
@@ -43,12 +44,13 @@ export default function AgencyAuditPage() {
             <h1 id="agency-title">White-label Google Ads audits <em>for agencies</em></h1>
             <p className="hero-intro">A one-off review of your client’s Google Search campaigns, delivered as an interactive report under your agency’s branding. Your team presents the findings and implements the changes.</p>
             <div className="hero-actions">
-              <a className="button button-lime" href="/contact">Discuss an agency audit</a>
-              <a className="button button-outline" href={AUDIT_EXAMPLE_URL}>See an audit example</a>
+              <a className="button button-lime" href={AUDIT_QUOTE_URLS.agency}>Get a fixed quote</a>
+              <a className="button button-outline" href={AUDIT_EXAMPLE_URL}>See a sample report</a>
             </div>
           </div>
           <div className="audit-brief">
             <h2>What you can share with your client</h2>
+            <p>You stay the point of contact. We deliver the report to your team, and you decide when and how to share it.</p>
             <dl>
               <div><dt>Executive summary</dt><dd>Lead with the issues that matter most to the account.</dd></div>
               <div><dt>Evidence behind each finding</dt><dd>Drill into the campaigns, markets and search terms that support each recommendation.</dd></div>
@@ -82,8 +84,9 @@ export default function AgencyAuditPage() {
           </div>
           <div className="audit-brief">
             <h3>Access and turnaround</h3>
-            <p>We agree a fixed fee and delivery date upfront. A standard audit takes about a week once we’ve confirmed the scope and received read-only access or the agreed exports.</p>
-            <a className="button button-lime" href="/contact">Get a quote</a>
+            <p>Tell us how many accounts and markets you want reviewed and what the audit needs to answer. We’ll agree a fixed fee and delivery date upfront.</p>
+            <p>We aim to deliver a standard audit in about a week once we’ve agreed the scope and received read-only access or the agreed exports.</p>
+            <a className="button button-lime" href={AUDIT_QUOTE_URLS.agency}>Get a fixed quote</a>
           </div>
         </div>
       </section>

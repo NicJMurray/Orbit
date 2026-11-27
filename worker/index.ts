@@ -1,8 +1,8 @@
 import handler from "vinext/server/fetch-handler";
-import { AUDIT_DOWNLOAD_URL, AUDIT_URL } from "../lib/site-content";
+import { AUDIT_DOWNLOAD_URL, AUDIT_EXAMPLE_URL, AUDIT_URL } from "../lib/site-content";
 
 const auditAssetPath = "/alder-orbit-audit";
-const auditHomeLink = '<a href="/#work" aria-label="Back to Orbit Audits" style="color:var(--ink);font-weight:700;text-decoration:underline;text-underline-offset:.18em">← Orbit Audits</a>';
+const auditSummaryLink = `<a href="${AUDIT_EXAMPLE_URL}" aria-label="Back to the Orbit Audits sample summary" style="color:var(--ink);font-weight:700;text-decoration:underline;text-underline-offset:.18em">← Sample summary</a>`;
 
 export default {
   async fetch(request: Request, env: Cloudflare.Env, ctx: ExecutionContext) {
@@ -31,7 +31,7 @@ export default {
       // The back link belongs to the web view; the downloaded report stays self-contained.
       return new HTMLRewriter().on(".topbar .breadcrumb > span:first-child", {
         element(title) {
-          title.replace(auditHomeLink, { html: true });
+          title.replace(auditSummaryLink, { html: true });
         },
       }).transform(page);
     }

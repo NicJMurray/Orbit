@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { AUDIT_QUOTE_URLS } from "../../lib/enquiry";
 import {
   AGENCY_AUDIT_URL,
   ALDER_ORBIT_CASE,
@@ -94,9 +95,10 @@ export default function AuditExamplePage() {
             <p className="section-link"><a href={AUDIT_CHECKLIST_URL}>Apply the same checks to your account</a></p>
           </div>
           <div className="audit-brief">
-            <h3>Need a report for a client?</h3>
-            <p>We can deliver a one-off Google Search audit under your agency’s branding.</p>
-            <a className="button button-lime" href={AGENCY_AUDIT_URL}>Explore white-label audits</a>
+            <h3>Want the same review for your account?</h3>
+            <p>Tell us what you want to find out from your Google Search campaigns. We’ll come back with a scope, timing and a fixed quote.</p>
+            <a className="button button-lime" href={AUDIT_QUOTE_URLS.brand}>Get a fixed quote</a>
+            <p className="section-link"><a href={AGENCY_AUDIT_URL}>Working on an agency client’s account? See white-label audits</a></p>
           </div>
         </div>
       </section>

@@ -1,11 +1,11 @@
 "use client";
 
 import { useEffect, useRef, useState, type FormEvent } from "react";
-import { INTERESTS, type Enquiry } from "../../lib/enquiry";
+import { INTERESTS, type Enquiry, type Interest } from "../../lib/enquiry";
 
 type Errors = Partial<Record<keyof Enquiry, string>>;
 
-export function ContactForm({ initialSent = false }: { initialSent?: boolean }) {
+export function ContactForm({ initialSent = false, initialInterest }: { initialSent?: boolean; initialInterest?: Interest }) {
   const [sent, setSent] = useState(initialSent);
   const [sending, setSending] = useState(false);
   const [errors, setErrors] = useState<Errors>({});
@@ -94,7 +94,7 @@ export function ContactForm({ initialSent = false }: { initialSent?: boolean }) 
               {error("company")}
             </label>
             <label htmlFor="enquiry-interest">What are you looking for?
-              <select id="enquiry-interest" name="interest" defaultValue="" required {...described("interest")}>
+              <select id="enquiry-interest" name="interest" defaultValue={initialInterest ?? ""} required {...described("interest")}>
                 <option value="" disabled>Select one</option>
                 {INTERESTS.map(interest => <option key={interest} value={interest}>{interest}</option>)}
               </select>

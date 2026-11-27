@@ -9,7 +9,6 @@ import {
   AUDIT_DOWNLOAD_URL,
   AUDIT_EXAMPLE_URL,
   AUDIT_PILLARS,
-  AUDIT_URL,
   FAQ,
 } from "../lib/site-content";
 
@@ -107,8 +106,8 @@ export default function Home() {
             <h1 id="hero-title">Independent <br />Google Ads <em>audits</em></h1>
             <p className="hero-intro">See what’s working, where spend is leaking and what to fix first. Get an interactive audit your team can explore, share and keep.</p>
             <div className="hero-actions">
-              <a className="button button-lime" href={AUDIT_URL}>View a sample audit</a>
-              <a className="button button-outline" href="#contact">Discuss an audit</a>
+              <a className="button button-lime" href={AUDIT_EXAMPLE_URL}>View a sample audit</a>
+              <a className="button button-outline" href="#contact">Get a fixed quote</a>
             </div>
             <div className="hero-detail">
               <p>For agencies and in-house teams.</p>
@@ -172,7 +171,7 @@ export default function Home() {
               <p className="eyebrow"><span className="eyebrow-mark" /> Sample work</p>
               <h2 id="work-title">Example audit reports<span className="lime-period">.</span></h2>
             </div>
-            <p>Explore sample audits for three fictional mid-sized brands. Each example shows the kind of issue we’d investigate and the next step we’d recommend.</p>
+            <p>Explore a full interactive audit for a fictional retailer, plus short examples of what we’d investigate for sports and automotive brands.</p>
           </div>
           <ExampleWork />
           <div className="download-strip">
