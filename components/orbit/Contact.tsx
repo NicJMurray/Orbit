@@ -1,6 +1,7 @@
 import { ContactForm } from "./ContactForm";
+import type { Interest } from "../../lib/enquiry";
 
-export function Contact({ initialSent = false, standalone = false }: { initialSent?: boolean; standalone?: boolean }) {
+export function Contact({ initialSent = false, initialInterest, standalone = false }: { initialSent?: boolean; initialInterest?: Interest; standalone?: boolean }) {
   const Title = standalone ? "h1" : "h2";
   return (
     <section className={"contact-section" + (standalone ? " contact-standalone" : "")} id="contact" aria-labelledby="contact-title">
@@ -23,7 +24,7 @@ export function Contact({ initialSent = false, standalone = false }: { initialSe
             </g>
           </svg>
         </div>
-        <ContactForm initialSent={initialSent} />
+        <ContactForm initialSent={initialSent} initialInterest={initialInterest} />
       </div>
     </section>
   );

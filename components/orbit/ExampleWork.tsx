@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { AUDIT_URL, CASES } from "../../lib/site-content";
+import { AUDIT_EXAMPLE_URL, CASES } from "../../lib/site-content";
 
 export function ExampleWork() {
   const dialog = useRef<HTMLDialogElement>(null);
@@ -18,14 +18,14 @@ export function ExampleWork() {
               <span className="case-genre">{item.category}</span>
             </div>
             <div className="case-copy">
-              <p className="case-brand">{item.name}{item.id === "alder" && <span>Full demo</span>}</p>
+              <p className="case-brand">{item.name}{item.openDemo && <span>Full demo</span>}</p>
               <h3>{item.headline}</h3>
               <p>{item.summary}</p>
-              <button className="underlink" type="button" onClick={(e) => {
+              {item.openDemo ? <a className="underlink case-link" href={AUDIT_EXAMPLE_URL}>View sample audit</a> : <button className="underlink" type="button" onClick={(e) => {
                 previous.current = e.currentTarget;
                 setCurrent(item);
                 dialog.current?.showModal();
-              }} aria-label={"View " + item.name + " example"}>View example</button>
+              }} aria-label={"View " + item.name + " example"}>View example</button>}
             </div>
           </article>
         ))}
@@ -48,9 +48,7 @@ export function ExampleWork() {
           <p className="case-intent">{current.brief}</p>
           <div className="case-insight"><span>What the audit found</span><p>{current.finding}</p></div>
           <div className="case-insight"><span>What to do next</span><p>{current.action}</p></div>
-          {current.openDemo ? (
-            <a className="button button-lime" href={AUDIT_URL}>Open the full sample audit</a>
-          ) : <a className="button button-lime" href="/contact">Discuss an audit</a>}
+          <a className="button button-lime" href="/contact">Get a fixed quote</a>
         </div>
       </dialog>
     </>

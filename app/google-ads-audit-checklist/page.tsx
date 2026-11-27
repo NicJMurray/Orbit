@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { CopyFindingsTemplate } from "../../components/orbit/CopyFindingsTemplate";
+import { AUDIT_QUOTE_URLS } from "../../lib/enquiry";
 import { ALDER_ORBIT_CASE, AUDIT_CHECKLIST_URL, AUDIT_EXAMPLE_URL, AUDIT_URL } from "../../lib/site-content";
 
 const title = "Google Ads audit checklist";
@@ -162,7 +163,7 @@ export default function AuditChecklistPage() {
           </div>
           <p className="guide-intro">We review Google Search campaigns and deliver the evidence, priorities and next steps in an interactive report your team can share and keep.</p>
           <p className="section-link"><a href={AUDIT_EXAMPLE_URL}>See what a Google Ads audit looks like</a></p>
-          <p className="section-link"><a className="button button-ink" href="/contact">Discuss an audit</a></p>
+          <p className="section-link"><a className="button button-ink" href={AUDIT_QUOTE_URLS.brand}>Get a fixed quote</a></p>
         </div>
       </section>
     </main>
