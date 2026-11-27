@@ -84,7 +84,7 @@ export default function AuditChecklistPage() {
         <div className="wrap audit-hero-layout">
           <div>
             <h1 id="checklist-title">Google Ads <em>audit checklist</em></h1>
-            <p className="hero-intro">Use these six checks to review your Google Search campaigns. Start with what the account counts as a conversion, then work through the settings and searches that shape where the money goes.</p>
+            <p className="hero-intro">Six checks for Google Search campaigns, plus a template for recording what you find and what to do next.</p>
             <div className="hero-actions">
               <a className="button button-lime" href="#audit-checks">Jump to the checks</a>
               <a className="button button-outline" href="#findings-template">Findings template</a>
@@ -93,9 +93,9 @@ export default function AuditChecklistPage() {
           <aside className="audit-brief" aria-labelledby="checklist-prep-title">
             <h2 id="checklist-prep-title">Before you start</h2>
             <ul className="checklist-prep">
-              <li>Write down the decision the audit needs to support, such as where to cut spend or what to fix after taking over the account.</li>
-              <li>Choose a representative date range and compare like-for-like periods. Give recent clicks time to convert.</li>
-              <li>Agree which outcomes count, such as paid orders or qualified enquiries, and gather the data you’ll use to verify them.</li>
+              <li>Decide what the audit needs to answer.</li>
+              <li>Compare like-for-like periods and allow for conversion lag.</li>
+              <li>Identify the outcomes that matter and how to verify them.</li>
             </ul>
           </aside>
         </div>
@@ -135,7 +135,7 @@ export default function AuditChecklistPage() {
         <div className="wrap">
           <div className="section-heading split-heading">
             <h2 id="template-title">Record your findings</h2>
-            <p>Keep one row per finding. Save the evidence and how you’ll verify the fix so someone else can pick up the work.</p>
+            <p>Use one row per finding. Record the evidence, fix and how to verify it.</p>
           </div>
           <div className="findings-table-wrap" role="region" aria-label="Worked finding from the fictional audit" tabIndex={0}>
             <table className="findings-table">
@@ -161,8 +161,7 @@ export default function AuditChecklistPage() {
           <div className="section-heading">
             <h2 id="checklist-next-title">Get a second opinion</h2>
           </div>
-          <p className="guide-intro">We review Google Search campaigns and deliver the evidence, priorities and next steps in an interactive report your team can share and keep.</p>
-          <p className="section-link"><a href={AUDIT_EXAMPLE_URL}>See what a Google Ads audit looks like</a></p>
+          <p className="section-link"><a href={AUDIT_EXAMPLE_URL}>View a sample audit</a></p>
           <p className="section-link"><a className="button button-ink" href={AUDIT_QUOTE_URLS.brand}>Get a fixed quote</a></p>
         </div>
       </section>

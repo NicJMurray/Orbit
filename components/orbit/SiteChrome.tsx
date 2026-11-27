@@ -1,10 +1,9 @@
-import { ABOUT_URL, AGENCY_AUDIT_URL, AUDIT_CHECKLIST_URL, AUDIT_EXAMPLE_URL } from "../../lib/site-content";
+import { ABOUT_URL, AGENCY_AUDIT_URL, AUDIT_CHECKLIST_URL } from "../../lib/site-content";
 import { MobileMenu } from "./MobileMenu";
 
 export const navLinks = [
-  { href: "/#services", label: "What we audit" },
-  { href: "/#work", label: "Sample work" },
-  { href: "/#process", label: "How it works" },
+  { href: "/#services", label: "Audit scope" },
+  { href: "/#work", label: "Examples" },
   { href: AGENCY_AUDIT_URL, label: "For agencies" },
   { href: ABOUT_URL, label: "About" },
 ] as const;
@@ -31,7 +30,7 @@ export function SiteHeader() {
         <nav className="primary-nav" aria-label="Main navigation">
           {navLinks.map(link => <a key={link.href} href={link.href}>{link.label}</a>)}
         </nav>
-        <a className="button button-nav" href="/contact">Get in touch</a>
+        <a className="button button-nav" href="/contact">Contact</a>
         <MobileMenu links={navLinks} />
       </div>
     </header>
@@ -42,17 +41,10 @@ export function SiteFooter() {
   return (
     <footer className="footer">
       <div className="wrap footer-grid">
-        <div>
-          <Wordmark />
-          <p>Independent Google Ads audits.</p>
-        </div>
+        <Wordmark />
         <nav aria-label="Footer navigation">
-          <a href="/#services">What we audit</a>
-          <a href="/#work">Sample work</a>
-          <a href={AUDIT_EXAMPLE_URL}>Audit example</a>
+          {navLinks.map(link => <a key={link.href} href={link.href}>{link.label}</a>)}
           <a href={AUDIT_CHECKLIST_URL}>Audit checklist</a>
-          <a href={AGENCY_AUDIT_URL}>For agencies</a>
-          <a href={ABOUT_URL}>About</a>
           <a href="/contact">Contact</a>
           <a href="/privacy">Enquiry privacy</a>
         </nav>

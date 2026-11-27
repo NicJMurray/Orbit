@@ -3,10 +3,8 @@ import { Globe } from "../components/orbit/Globe";
 import { ExampleWork } from "../components/orbit/ExampleWork";
 import { Contact } from "../components/orbit/Contact";
 import {
-  ABOUT_URL,
   AGENCY_AUDIT_URL,
   AUDIT_CHECKLIST_URL,
-  AUDIT_DOWNLOAD_URL,
   AUDIT_EXAMPLE_URL,
   AUDIT_PILLARS,
   FAQ,
@@ -14,25 +12,10 @@ import {
 
 export const metadata: Metadata = { alternates: { canonical: "/" } };
 
-const AUDIT_SITUATIONS = [
-  {
-    title: "You’re taking over an account",
-    copy: "Find out what’s working and what needs attention before you change the setup.",
-  },
-  {
-    title: "Costs are rising",
-    copy: "See where spend has shifted and which campaigns are bringing in fewer leads or sales for the money.",
-  },
-  {
-    title: "You’re planning to spend more",
-    copy: "Check that Google Ads is counting the right conversions before you increase the budget.",
-  },
-] as const;
-
 const PROCESS = [
-  { title: "Scope the question", copy: "Tell us what you need to decide: where to invest, what to fix, or how to get a new account off to a good start." },
-  { title: "Open up the account", copy: "Give us read-only access or share the agreed exports. We trace search, spend and measurement across the markets in scope." },
-  { title: "Get a report you keep", copy: "Open the interactive report in a browser, dig into the evidence and share the action plan with the people doing the work." },
+  { title: "Agree the scope", copy: "Tell us which accounts and markets to review. We’ll agree a fixed fee and delivery date." },
+  { title: "Share access", copy: "Give us read-only access or send the agreed exports." },
+  { title: "Get your report", copy: "Standard audits take about a week once we have access or the exports. The HTML report is yours to keep and works offline." },
 ] as const;
 
 function PillarArt({ type }: { type: (typeof AUDIT_PILLARS)[number]["id"] }) {
@@ -102,35 +85,21 @@ export default function Home() {
       <section className="hero" aria-labelledby="hero-title">
         <div className="wrap hero-layout">
           <div className="hero-copy">
-            <p className="eyebrow"><span className="eyebrow-mark" /> Paid search. In full view.</p>
             <h1 id="hero-title">Independent <br />Google Ads <em>audits</em></h1>
-            <p className="hero-intro">See what’s working, where spend is leaking and what to fix first. Get an interactive audit your team can explore, share and keep.</p>
+            <p className="hero-intro">We review Google Search campaigns for agencies and in-house teams. You get an interactive report showing where spend is wasted and what to fix first.</p>
             <div className="hero-actions">
               <a className="button button-lime" href={AUDIT_EXAMPLE_URL}>View a sample audit</a>
               <a className="button button-outline" href="#contact">Get a fixed quote</a>
             </div>
-            <div className="hero-detail">
-              <p>For agencies and in-house teams.</p>
-              <p>Standard audits take about a week once we’ve agreed the scope and have access.</p>
-            </div>
           </div>
           <div className="hero-globe"><Globe /></div>
-        </div>
-        <div className="wrap hero-footer">
-          <p><span className="tick-mark" aria-hidden="true">✓</span> Read-only access</p>
-          <p><span className="tick-mark" aria-hidden="true">✓</span> Clear, evidence-backed actions</p>
-          <p><span className="tick-mark" aria-hidden="true">✓</span> A report you can keep offline</p>
         </div>
       </section>
 
       <section className="services light-section section-space" id="services" aria-labelledby="services-title">
         <div className="wrap">
-          <div className="section-heading split-heading">
-            <div>
-              <p className="eyebrow"><span className="eyebrow-mark" /> What we audit</p>
-              <h2 id="services-title">What’s included in a Google Ads audit<span className="green-period">?</span></h2>
-            </div>
-            <p>We follow the details that explain the results: from the settings that control bidding to the search terms your ads actually matched.</p>
+          <div className="section-heading">
+            <h2 id="services-title">What we audit<span className="green-period">.</span></h2>
           </div>
           <div className="pillar-grid">
             {AUDIT_PILLARS.map(item => (
@@ -139,94 +108,47 @@ export default function Home() {
                 <div className="pillar-copy">
                   <h3>{item.title}</h3>
                   <p>{item.description}</p>
-                  <ul className="pill-tags">{item.tags.map(tag => <li key={tag}>{tag}</li>)}</ul>
                 </div>
               </article>
             ))}
           </div>
-          <p className="section-link"><a className="button button-ink" href={AUDIT_CHECKLIST_URL}>Use the audit checklist</a></p>
-        </div>
-      </section>
-
-      <section className="light-section audit-timing" id="when-to-get-an-audit" aria-labelledby="audit-timing-title">
-        <div className="wrap">
-          <div className="section-heading">
-            <h2 id="audit-timing-title">When to get a Google Ads audit<span className="green-period">.</span></h2>
-          </div>
-          <ul className="process-grid audit-cards">
-            {AUDIT_SITUATIONS.map(({ title, copy }) => (
-              <li className="process-step" key={title}>
-                <h3>{title}</h3>
-                <p>{copy}</p>
-              </li>
-            ))}
-          </ul>
+          <p className="section-link"><a href={AUDIT_CHECKLIST_URL}>See the Google Ads audit checklist</a></p>
         </div>
       </section>
 
       <section className="work section-space" id="work" aria-labelledby="work-title">
         <div className="wrap">
           <div className="section-heading split-heading">
-            <div>
-              <p className="eyebrow"><span className="eyebrow-mark" /> Sample work</p>
-              <h2 id="work-title">Example audit reports<span className="lime-period">.</span></h2>
-            </div>
-            <p>Explore a full interactive audit for a fictional retailer, plus short examples of what we’d investigate for sports and automotive brands.</p>
+            <h2 id="work-title">Audit examples<span className="lime-period">.</span></h2>
+            <p>One full report and two short examples. All brands and data are fictional.</p>
           </div>
           <ExampleWork />
-          <div className="download-strip">
-            <div>
-              <strong>The Alder &amp; Orbit audit</strong>
-              <p>Three findings and the 90-day plan they informed.</p>
-            </div>
-            <div className="download-actions">
-              <a className="button button-outline" href={AUDIT_EXAMPLE_URL}>See the sample Google Ads audit</a>
-              <a className="button button-lime" href={AUDIT_DOWNLOAD_URL} download="Orbit-Audits-Sample.html">Download HTML</a>
-            </div>
-          </div>
         </div>
       </section>
 
       <section className="process light-section section-space" id="process" aria-labelledby="process-title">
         <div className="wrap">
           <div className="section-heading">
-            <p className="eyebrow"><span className="eyebrow-mark" /> How it works</p>
-            <h2 id="process-title">From account to action<span className="green-period">.</span></h2>
+            <h2 id="process-title">How it works<span className="green-period">.</span></h2>
           </div>
           <ol className="process-grid">
             {PROCESS.map((step, i) => <li className="process-step" key={step.title}><div className="process-icon"><ProcessIcon i={i} /></div><h3>{step.title}</h3><p>{step.copy}</p></li>)}
           </ol>
           <aside className="agency-panel" aria-label="Support for agencies">
             <div className="agency-text">
-              <p className="eyebrow"><span className="eyebrow-mark" /> For agencies</p>
-              <h3>You present it.<br />We do the digging.</h3>
-              <p>Use an independent audit to strengthen a pitch, find quick wins in a new account or give an existing client a fresh perspective. We can deliver it under your branding.</p>
-              <a className="button button-outline" href={AGENCY_AUDIT_URL}>Explore white-label audits</a>
+              <h3>White-label audits<span className="lime-period">.</span></h3>
+              <p>We audit your client’s account. You present the report under your own branding.</p>
+              <a className="button button-outline" href={AGENCY_AUDIT_URL}>See agency audits</a>
             </div>
             <div className="agency-art" aria-hidden="true">
               <div className="orbit-system"><i /><i /><i /><i /><span /></div>
             </div>
           </aside>
           <div className="faq-layout" id="faq">
-            <div>
-              <p className="eyebrow"><span className="eyebrow-mark" /> FAQs</p>
-              <h2>A few things<br />to know<span className="green-period">.</span></h2>
-            </div>
+            <h2>FAQs<span className="green-period">.</span></h2>
             <div className="faq-list">
               {FAQ.map(item => <details key={item.question}><summary>{item.question}<span aria-hidden="true" /></summary><p>{item.answer}</p></details>)}
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="home-about light-section section-space" id="about" aria-labelledby="home-about-title">
-        <div className="wrap audit-details">
-          <div className="section-heading">
-            <h2 id="home-about-title">About Orbit Audits<span className="green-period">.</span></h2>
-          </div>
-          <div className="home-about-copy">
-            <p>We’re Sam and Nic. Sam helps you decide what the audit should answer. Nic reviews the account and turns the findings into an interactive report your team can use.</p>
-            <a className="button button-ink" href={ABOUT_URL}>Meet Sam and Nic</a>
           </div>
         </div>
       </section>

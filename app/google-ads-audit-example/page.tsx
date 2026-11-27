@@ -29,19 +29,19 @@ export const metadata: Metadata = {
 
 const findings = [
   {
-    title: "Two purchase actions could steer US bidding",
-    evidence: "Two purchase actions were eligible to inform bidding in the US. If both record the same order, bidding can optimise against duplicated sales signals.",
-    action: "Check both actions against actual orders and use one validated purchase action as the primary bidding signal.",
+    title: "US purchases could be counted twice",
+    evidence: "US campaigns could bid on two purchase actions. If both record the same order, Google Ads counts it twice.",
+    action: "Check both actions against orders. Use one verified purchase action for bidding.",
   },
   {
     title: "A shared negative blocked a UK product term",
-    evidence: "A shared negative keyword made a priority UK product search ineligible, even though there was a relevant campaign and landing page.",
-    action: "Remove the conflict at the narrowest scope and verify the product search can reach the intended ad group.",
+    evidence: "A shared negative keyword blocked a product search that had a relevant campaign and landing page.",
+    action: "Fix the rule where it applies and check that the intended ad can show.",
   },
   {
-    title: "Branded demand lifted the total Search return",
-    evidence: "Searches for the retailer’s name lifted reported returns overall. The blended figure hid how much the results varied across non-brand campaigns and markets.",
-    action: "Split brand and non-brand performance by market before deciding where to test higher budgets.",
+    title: "Brand searches hid weaker returns",
+    evidence: "Searches for the retailer’s name lifted overall returns and masked differences across non-brand campaigns.",
+    action: "Compare brand and non-brand returns by market before raising budgets.",
   },
 ];
 
@@ -53,7 +53,7 @@ export default function AuditExamplePage() {
           <div>
             <p className="eyebrow"><span className="eyebrow-mark" aria-hidden="true" /> Alder &amp; Orbit · Fictional example</p>
             <h1 id="audit-example-title">Google Ads <em>audit example</em></h1>
-            <p className="hero-intro">Alder &amp; Orbit is a fictional lighting retailer with Google Search campaigns in 12 markets. Its brief was to find which markets could support more investment.</p>
+            <p className="hero-intro">A fictional lighting retailer runs Google Search campaigns in 12 markets. Which can support more spend?</p>
             <div className="hero-actions">
               <a className="button button-lime" href={AUDIT_URL}>Open the interactive report</a>
               <a className="button button-outline" href={AUDIT_DOWNLOAD_URL} download="Orbit-Audits-Sample.html">Download HTML</a>
@@ -71,9 +71,8 @@ export default function AuditExamplePage() {
 
       <section className="light-section section-space" aria-labelledby="audit-findings-title">
         <div className="wrap">
-          <div className="section-heading split-heading">
+          <div className="section-heading">
             <h2 id="audit-findings-title">What the audit found</h2>
-            <p>We’d verify the purchase signal first, fix the blocked search term, then use the non-brand numbers to decide where to invest.</p>
           </div>
           <ol className="process-grid audit-cards">
             {findings.map(finding => (
@@ -90,15 +89,14 @@ export default function AuditExamplePage() {
       <section className="work section-space" aria-labelledby="audit-plan-title">
         <div className="wrap audit-details">
           <div className="section-heading">
-            <h2 id="audit-plan-title">From findings to a 90-day plan</h2>
-            <p>The full report lets you explore campaign data by market and see how each finding led to a recommendation in the plan. You can open the same HTML file in a browser and share it with the people making the changes.</p>
-            <p className="section-link"><a href={AUDIT_CHECKLIST_URL}>Apply the same checks to your account</a></p>
+            <h2 id="audit-plan-title">The 90-day plan</h2>
+            <p>The full report shows the evidence by market and the order we’d tackle each fix.</p>
+            <p className="section-link"><a href={AUDIT_CHECKLIST_URL}>Use the audit checklist</a></p>
           </div>
           <div className="audit-brief">
-            <h3>Want the same review for your account?</h3>
-            <p>Tell us what you want to find out from your Google Search campaigns. We’ll come back with a scope, timing and a fixed quote.</p>
+            <h3>Need an audit?</h3>
             <a className="button button-lime" href={AUDIT_QUOTE_URLS.brand}>Get a fixed quote</a>
-            <p className="section-link"><a href={AGENCY_AUDIT_URL}>Working on an agency client’s account? See white-label audits</a></p>
+            <p className="section-link"><a href={AGENCY_AUDIT_URL}>See white-label audits for agencies</a></p>
           </div>
         </div>
       </section>
