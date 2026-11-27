@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import {
   AGENCY_AUDIT_URL,
   ALDER_ORBIT_CASE,
+  AUDIT_CHECKLIST_URL,
   AUDIT_DOWNLOAD_URL,
   AUDIT_EXAMPLE_URL,
   AUDIT_URL,
@@ -90,6 +91,7 @@ export default function AuditExamplePage() {
           <div className="section-heading">
             <h2 id="audit-plan-title">From findings to a 90-day plan</h2>
             <p>The full report lets you explore campaign data by market and see how each finding led to a recommendation in the plan. You can open the same HTML file in a browser and share it with the people making the changes.</p>
+            <p className="section-link"><a href={AUDIT_CHECKLIST_URL}>Apply the same checks to your account</a></p>
           </div>
           <div className="audit-brief">
             <h3>Need a report for a client?</h3>

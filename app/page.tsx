@@ -2,7 +2,16 @@ import type { Metadata } from "next";
 import { Globe } from "../components/orbit/Globe";
 import { ExampleWork } from "../components/orbit/ExampleWork";
 import { Contact } from "../components/orbit/Contact";
-import { AGENCY_AUDIT_URL, AUDIT_DOWNLOAD_URL, AUDIT_EXAMPLE_URL, AUDIT_PILLARS, AUDIT_URL, FAQ } from "../lib/site-content";
+import {
+  ABOUT_URL,
+  AGENCY_AUDIT_URL,
+  AUDIT_CHECKLIST_URL,
+  AUDIT_DOWNLOAD_URL,
+  AUDIT_EXAMPLE_URL,
+  AUDIT_PILLARS,
+  AUDIT_URL,
+  FAQ,
+} from "../lib/site-content";
 
 export const metadata: Metadata = { alternates: { canonical: "/" } };
 
@@ -118,6 +127,7 @@ export default function Home() {
               </article>
             ))}
           </div>
+          <p className="section-link"><a href={AUDIT_CHECKLIST_URL}>Use the Google Ads audit checklist</a></p>
         </div>
       </section>
 
@@ -153,6 +163,7 @@ export default function Home() {
           <ol className="process-grid">
             {PROCESS.map((step, i) => <li className="process-step" key={step.title}><div className="process-icon"><ProcessIcon i={i} /></div><h3>{step.title}</h3><p>{step.copy}</p></li>)}
           </ol>
+          <p className="section-link"><a href={ABOUT_URL}>Meet Sam and Nic</a></p>
           <aside className="agency-panel" aria-label="Support for agencies">
             <div className="agency-text">
               <p className="eyebrow"><span className="eyebrow-mark" /> For agencies</p>
