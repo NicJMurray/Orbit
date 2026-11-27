@@ -1,4 +1,4 @@
-import { AGENCY_AUDIT_URL, AUDIT_EXAMPLE_URL } from "../../lib/site-content";
+import { ABOUT_URL, AGENCY_AUDIT_URL, AUDIT_CHECKLIST_URL, AUDIT_EXAMPLE_URL } from "../../lib/site-content";
 import { MobileMenu } from "./MobileMenu";
 
 export const navLinks = [
@@ -49,7 +49,9 @@ export function SiteFooter() {
           <a href="/#services">What we audit</a>
           <a href="/#work">Sample work</a>
           <a href={AUDIT_EXAMPLE_URL}>Audit example</a>
+          <a href={AUDIT_CHECKLIST_URL}>Audit checklist</a>
           <a href={AGENCY_AUDIT_URL}>For agencies</a>
+          <a href={ABOUT_URL}>About</a>
           <a href="/contact">Contact</a>
           <a href="/privacy">Enquiry privacy</a>
         </nav>

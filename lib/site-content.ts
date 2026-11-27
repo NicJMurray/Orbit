@@ -1,4 +1,6 @@
+export const ABOUT_URL = "/about";
 export const AGENCY_AUDIT_URL = "/white-label-google-ads-audit";
+export const AUDIT_CHECKLIST_URL = "/google-ads-audit-checklist";
 export const AUDIT_EXAMPLE_URL = "/google-ads-audit-example";
 export const AUDIT_URL = "/examples/alder-and-orbit";
 export const AUDIT_DOWNLOAD_URL = "/alder-orbit-audit.html";
