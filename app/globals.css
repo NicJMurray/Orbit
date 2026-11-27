@@ -265,6 +265,9 @@ p{text-wrap:pretty}
 .audit-action strong{display:block;color:var(--ink)}
 .audit-details .section-heading{margin-bottom:0}
 .audit-details .section-heading p{color:var(--muted);max-width:36rem;margin-top:1.1rem}
+.home-about{background:var(--paper-bright);border-top:1px solid var(--paper-line)}
+.home-about-copy p{max-width:32rem;color:var(--sub);font-size:1.08rem}
+.home-about-copy .button{margin-top:1.2rem}
 .section-link{margin-top:1.2rem;font-weight:750}
 .guide-intro{color:var(--sub);max-width:41rem}
 .audit-card-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(.9rem,2vw,1.65rem)}
@@ -312,7 +315,7 @@ p{text-wrap:pretty}
   .pillar-copy,.case-copy{padding-inline:1.1rem}
   .form-actions{gap:.6rem}
 }
-@media(max-width:780px){
+@media(max-width:900px){
   html{scroll-padding-top:5.05rem}
   .header-layout{min-height:4.25rem;grid-template-columns:1fr auto;gap:1rem}
   .primary-nav,.button-nav{display:none}
@@ -321,6 +324,8 @@ p{text-wrap:pretty}
   .nav-drawer{position:absolute;top:100%;left:0;right:0;z-index:19;display:grid;gap:.2rem;background:#132219;border-bottom:1px solid #90ac8765;padding:1rem var(--pad);box-shadow:0 14px 40px #03070488}
   .nav-drawer a{padding:.65rem .35rem;font-weight:700;text-decoration:none;color:#e8f5e6}
   .nav-drawer a:hover{color:var(--lime)}
+}
+@media(max-width:780px){
   .hero-layout{grid-template-columns:1fr;gap:1.45rem;padding-top:2.25rem;padding-bottom:1.5rem}
   .hero-copy{padding-block:.25rem 0}
   .hero-copy h1{font-size:clamp(2.15rem,10vw,4.65rem);margin-bottom:1.05rem}

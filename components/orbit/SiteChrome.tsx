@@ -6,6 +6,7 @@ export const navLinks = [
   { href: "/#work", label: "Sample work" },
   { href: "/#process", label: "How it works" },
   { href: AGENCY_AUDIT_URL, label: "For agencies" },
+  { href: ABOUT_URL, label: "About" },
 ] as const;
 
 export function Mark({ size = 33 }: { size?: number }) {

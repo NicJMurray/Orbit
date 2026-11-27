@@ -163,7 +163,6 @@ export default function Home() {
           <ol className="process-grid">
             {PROCESS.map((step, i) => <li className="process-step" key={step.title}><div className="process-icon"><ProcessIcon i={i} /></div><h3>{step.title}</h3><p>{step.copy}</p></li>)}
           </ol>
-          <p className="section-link"><a href={ABOUT_URL}>Meet Sam and Nic</a></p>
           <aside className="agency-panel" aria-label="Support for agencies">
             <div className="agency-text">
               <p className="eyebrow"><span className="eyebrow-mark" /> For agencies</p>
@@ -183,6 +182,18 @@ export default function Home() {
             <div className="faq-list">
               {FAQ.map(item => <details key={item.question}><summary>{item.question}<span aria-hidden="true" /></summary><p>{item.answer}</p></details>)}
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="home-about light-section section-space" id="about" aria-labelledby="home-about-title">
+        <div className="wrap audit-details">
+          <div className="section-heading">
+            <h2 id="home-about-title">About Orbit Audits<span className="green-period">.</span></h2>
+          </div>
+          <div className="home-about-copy">
+            <p>We’re Sam and Nic. Sam helps you decide what the audit should answer. Nic reviews the account and turns the findings into an interactive report your team can use.</p>
+            <a className="button button-ink" href={ABOUT_URL}>Meet Sam and Nic</a>
           </div>
         </div>
       </section>
