@@ -15,6 +15,21 @@ import {
 
 export const metadata: Metadata = { alternates: { canonical: "/" } };
 
+const AUDIT_SITUATIONS = [
+  {
+    title: "You’re taking over an account",
+    copy: "Find out what’s working and what needs attention before you change the setup.",
+  },
+  {
+    title: "Costs are rising",
+    copy: "See where spend has shifted and which campaigns are bringing in fewer leads or sales for the money.",
+  },
+  {
+    title: "You’re planning to spend more",
+    copy: "Check that Google Ads is counting the right conversions before you increase the budget.",
+  },
+] as const;
+
 const PROCESS = [
   { title: "Scope the question", copy: "Tell us what you need to decide: where to invest, what to fix, or how to get a new account off to a good start." },
   { title: "Open up the account", copy: "Give us read-only access or share the agreed exports. We trace search, spend and measurement across the markets in scope." },
@@ -92,10 +107,13 @@ export default function Home() {
             <h1 id="hero-title">Independent <br />Google Ads <em>audits</em></h1>
             <p className="hero-intro">See what’s working, where spend is leaking and what to fix first. Get an interactive audit your team can explore, share and keep.</p>
             <div className="hero-actions">
-              <a className="button button-lime" href={AUDIT_URL}>Explore the demo</a>
+              <a className="button button-lime" href={AUDIT_URL}>View a sample audit</a>
               <a className="button button-outline" href="#contact">Discuss an audit</a>
             </div>
-            <p className="hero-detail">For agencies and in-house teams.</p>
+            <div className="hero-detail">
+              <p>For agencies and in-house teams.</p>
+              <p>Standard audits take about a week once we’ve agreed the scope and have access.</p>
+            </div>
           </div>
           <div className="hero-globe"><Globe /></div>
         </div>
@@ -111,7 +129,7 @@ export default function Home() {
           <div className="section-heading split-heading">
             <div>
               <p className="eyebrow"><span className="eyebrow-mark" /> What we audit</p>
-              <h2 id="services-title">Get past the<br className="desktop-break" /> headline numbers<span className="green-period">.</span></h2>
+              <h2 id="services-title">What’s included in a Google Ads audit<span className="green-period">?</span></h2>
             </div>
             <p>We follow the details that explain the results: from the settings that control bidding to the search terms your ads actually matched.</p>
           </div>
@@ -127,7 +145,23 @@ export default function Home() {
               </article>
             ))}
           </div>
-          <p className="section-link"><a href={AUDIT_CHECKLIST_URL}>Use the Google Ads audit checklist</a></p>
+          <p className="section-link"><a className="button button-ink" href={AUDIT_CHECKLIST_URL}>Use the audit checklist</a></p>
+        </div>
+      </section>
+
+      <section className="light-section audit-timing" id="when-to-get-an-audit" aria-labelledby="audit-timing-title">
+        <div className="wrap">
+          <div className="section-heading">
+            <h2 id="audit-timing-title">When to get a Google Ads audit<span className="green-period">.</span></h2>
+          </div>
+          <ul className="process-grid audit-cards">
+            {AUDIT_SITUATIONS.map(({ title, copy }) => (
+              <li className="process-step" key={title}>
+                <h3>{title}</h3>
+                <p>{copy}</p>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
@@ -136,7 +170,7 @@ export default function Home() {
           <div className="section-heading split-heading">
             <div>
               <p className="eyebrow"><span className="eyebrow-mark" /> Sample work</p>
-              <h2 id="work-title">See what we look for<span className="lime-period">.</span></h2>
+              <h2 id="work-title">Example audit reports<span className="lime-period">.</span></h2>
             </div>
             <p>Explore sample audits for three fictional mid-sized brands. Each example shows the kind of issue we’d investigate and the next step we’d recommend.</p>
           </div>
