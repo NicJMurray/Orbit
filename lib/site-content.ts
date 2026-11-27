@@ -1,3 +1,5 @@
+export const AGENCY_AUDIT_URL = "/white-label-google-ads-audit";
+export const AUDIT_EXAMPLE_URL = "/google-ads-audit-example";
 export const AUDIT_URL = "/examples/alder-and-orbit";
 export const AUDIT_DOWNLOAD_URL = "/alder-orbit-audit.html";
 
@@ -22,21 +24,23 @@ export const AUDIT_PILLARS = [
   },
 ] as const;
 
+export const ALDER_ORBIT_CASE = {
+  id: "alder",
+  name: "Alder & Orbit",
+  sector: "Home & lighting",
+  category: "Ecommerce",
+  image: "/work/alder-and-orbit.webp",
+  imageAlt: "A dark green table lamp on a stone plinth",
+  headline: "Separate branded demand from growth.",
+  summary: "A retailer’s headline return looked healthy. A look at queries and purchase actions changed where the next pound should go.",
+  brief: "A direct-to-consumer lighting retailer wants to know which markets are ready for more Search investment.",
+  finding: "Branded demand lifted the headline return while two purchase actions could steer bidding in the US. A shared negative also blocked an important UK product term.",
+  action: "Verify one primary purchase action, fix the negative at the narrowest scope and compare non-brand returns before moving budget.",
+  openDemo: true,
+} as const;
+
 export const CASES = [
-  {
-    id: "alder",
-    name: "Alder & Orbit",
-    sector: "Home & lighting",
-    category: "Ecommerce",
-    image: "/work/alder-and-orbit.webp",
-    imageAlt: "A dark green table lamp on a stone plinth",
-    headline: "Separate branded demand from growth.",
-    summary: "A retailer’s headline return looked healthy. A look at queries and purchase actions changed where the next pound should go.",
-    brief: "A direct-to-consumer lighting retailer wants to know which markets are ready for more Search investment.",
-    finding: "Branded demand lifted the headline return while two purchase actions could steer bidding in the US. A shared negative also blocked an important UK product term.",
-    action: "Verify one primary purchase action, fix the negative at the narrowest scope and compare non-brand returns before moving budget.",
-    openDemo: true,
-  },
+  ALDER_ORBIT_CASE,
   {
     id: "fellmark",
     name: "Fellmark Athletics",

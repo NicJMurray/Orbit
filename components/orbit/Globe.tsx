@@ -56,7 +56,6 @@ export function Globe() {
   const pins = useRef<(HTMLButtonElement | null)[]>([]);
   const wake = useRef<() => void>(() => {});
   const selected = useRef(0);
-  const preferredMotion = useRef(false);
   const scene = useRef({
     yaw: initial.yaw, pitch: initial.pitch, zoom: 1,
     targetYaw: initial.yaw, targetPitch: initial.pitch, targetZoom: 1,
@@ -88,8 +87,8 @@ export function Globe() {
     if (!el || !container) return;
     const ctx = el.getContext("2d", { alpha: true });
     if (!ctx) return;
-    const query = window.matchMedia("(prefers-reduced-motion: reduce)");
-    preferredMotion.current = query.matches;
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const compactScreen = window.matchMedia("(max-width: 780px)");
     const bytes = Uint8Array.from(window.atob(LAND), c => c.charCodeAt(0));
     const coordinates = new DataView(bytes.buffer);
     const land: Array<{ v: Vec; shade: number; size: number }> = [];
@@ -112,17 +111,20 @@ export function Globe() {
     let width = 0;
     let height = 0;
     let dpr = 1;
+    let motionUntil = 0;
     const state = scene.current;
 
     function draw(now: number) {
       frame = 0;
       if (!width || !height || !ctx) return;
-      const reduced = query.matches;
-      const rate = reduced ? 1 : state.dragging ? 0.36 : 0.102;
+      const reduced = reducedMotion.matches;
+      const ambientMotion = !reduced && !compactScreen.matches;
+      const animate = ambientMotion || (!reduced && (state.dragging || now < motionUntil));
+      const rate = animate ? (state.dragging ? 0.36 : 0.102) : 1;
       state.yaw += wrapDistance(state.yaw, state.targetYaw) * rate;
       state.pitch += (state.targetPitch - state.pitch) * rate;
       state.zoom += (state.targetZoom - state.zoom) * rate;
-      const still = state.dragging || reduced || now < state.settledAt;
+      const still = state.dragging || !ambientMotion || now < state.settledAt;
       const breathe = still ? 0 : Math.sin(now / 3300) * 0.055;
       const cyaw = Math.cos(state.yaw + breathe);
       const syaw = Math.sin(state.yaw + breathe);
@@ -233,7 +235,7 @@ export function Globe() {
         ctx.beginPath();
         ctx.ellipse(cx, cy, radius * orbit.width, radius * orbit.height, orbit.angle, 0, Math.PI);
         ctx.stroke();
-        const theta = reduced ? 0.42 + i : (now / (i ? 5650 : 4100) + i * 2) % Math.PI;
+        const theta = ambientMotion ? (now / (i ? 5650 : 4100) + i * 2) % Math.PI : 0.42 + i;
         const dx = radius * orbit.width * Math.cos(theta);
         const dy = radius * orbit.height * Math.sin(theta);
         const tx = cx + dx * Math.cos(orbit.angle) - dy * Math.sin(orbit.angle);
@@ -261,11 +263,15 @@ export function Globe() {
           occupied.push([x, y]);
         }
       }
-      if (visible && !reduced) frame = requestAnimationFrame(draw);
+      if (visible && animate) frame = requestAnimationFrame(draw);
     }
 
-    wake.current = () => {
+    function requestDraw() {
       if (!frame && visible) frame = requestAnimationFrame(draw);
+    }
+    wake.current = () => {
+      motionUntil = performance.now() + 700;
+      requestDraw();
     };
     const resize = () => {
       const bounds = container.getBoundingClientRect();
@@ -274,18 +280,18 @@ export function Globe() {
       dpr = Math.min(window.devicePixelRatio || 1, 1.8);
       el.width = Math.round(width * dpr);
       el.height = Math.round(height * dpr);
-      wake.current();
+      requestDraw();
     };
     const observer = new ResizeObserver(resize);
     observer.observe(container);
     const viewObserver = new IntersectionObserver(([entry]) => {
       visible = entry.isIntersecting;
-      if (visible) wake.current();
+      if (visible) requestDraw();
       else if (frame) { cancelAnimationFrame(frame); frame = 0; }
     }, { rootMargin: "50px" });
     viewObserver.observe(container);
-    const motionChanged = () => { preferredMotion.current = query.matches; wake.current(); };
-    query.addEventListener("change", motionChanged);
+    reducedMotion.addEventListener("change", requestDraw);
+    compactScreen.addEventListener("change", requestDraw);
     resize();
     setReady(true);
 
@@ -303,7 +309,7 @@ export function Globe() {
       state.targetYaw -= (e.clientX - last[0]) * 0.0069;
       state.targetPitch = clamp(state.targetPitch + (e.clientY - last[1]) * 0.0066, -1.36, 1.36);
       last = [e.clientX, e.clientY];
-      wake.current();
+      requestDraw();
     }
     function end() {
       last = null;
@@ -321,7 +327,8 @@ export function Globe() {
       observer.disconnect();
       viewObserver.disconnect();
       if (frame) cancelAnimationFrame(frame);
-      query.removeEventListener("change", motionChanged);
+      reducedMotion.removeEventListener("change", requestDraw);
+      compactScreen.removeEventListener("change", requestDraw);
       el.removeEventListener("pointerdown", start);
       el.removeEventListener("pointermove", move);
       el.removeEventListener("pointerup", end);

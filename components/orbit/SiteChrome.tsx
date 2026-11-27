@@ -1,9 +1,11 @@
+import { AGENCY_AUDIT_URL, AUDIT_EXAMPLE_URL } from "../../lib/site-content";
 import { MobileMenu } from "./MobileMenu";
 
 export const navLinks = [
   { href: "/#services", label: "What we audit" },
   { href: "/#work", label: "Sample work" },
   { href: "/#process", label: "How it works" },
+  { href: AGENCY_AUDIT_URL, label: "For agencies" },
 ] as const;
 
 export function Mark({ size = 33 }: { size?: number }) {
@@ -46,6 +48,8 @@ export function SiteFooter() {
         <nav aria-label="Footer navigation">
           <a href="/#services">What we audit</a>
           <a href="/#work">Sample work</a>
+          <a href={AUDIT_EXAMPLE_URL}>Audit example</a>
+          <a href={AGENCY_AUDIT_URL}>For agencies</a>
           <a href="/contact">Contact</a>
           <a href="/privacy">Enquiry privacy</a>
         </nav>
