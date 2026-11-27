@@ -18,7 +18,7 @@ export function ExampleWork() {
               <span className="case-genre">{item.category}</span>
             </div>
             <div className="case-copy">
-              <p className="case-brand">{item.name}{item.openDemo && <span>Full demo</span>}</p>
+              <p className="case-brand">{item.name}{item.openDemo && <span>Full report</span>}</p>
               <h3>{item.headline}</h3>
               <p>{item.summary}</p>
               {item.openDemo ? <a className="underlink case-link" href={AUDIT_EXAMPLE_URL}>View sample audit</a> : <button className="underlink" type="button" onClick={(e) => {

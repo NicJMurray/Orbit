@@ -8,8 +8,8 @@ export const metadata: Metadata = {
   description: "Independent Google Ads and paid search audits for agencies and in-house teams. Find wasted spend, tracking gaps and what to fix first in an interactive report you can keep.",
   icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
   openGraph: {
-    title: "Orbit Audits — Paid search. In full view.",
-    description: "Evidence-led Google Ads audits, delivered as interactive reports you keep.",
+    title: "Orbit Audits | Independent Google Ads audits",
+    description: "See where your Google Search spend goes and what to fix first, in an interactive report you can keep.",
     siteName: "Orbit Audits",
     type: "website",
     locale: "en_GB",

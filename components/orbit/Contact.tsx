@@ -7,10 +7,8 @@ export function Contact({ initialSent = false, initialInterest, standalone = fal
     <section className={"contact-section" + (standalone ? " contact-standalone" : "")} id="contact" aria-labelledby="contact-title">
       <div className="wrap contact-layout">
         <div className="contact-copy">
-          <p className="eyebrow"><span className="eyebrow-mark" /> Contact us</p>
-          <Title id="contact-title">Let’s talk<br />paid search<span className="green-period">.</span></Title>
-          <p>Tell us what you’re working on and what you want the audit to answer. We’ll come back with a scope, timing and a fixed quote.</p>
-          <div className="contact-tags"><span>For agencies</span><span>For in-house teams</span></div>
+          <Title id="contact-title">Get a fixed quote<span className="green-period">.</span></Title>
+          <p>Tell us what you need reviewed. We’ll reply with the scope, fee and timing.</p>
           <svg className="contact-orbits" viewBox="0 0 560 340" width="560" height="340" fill="none" aria-hidden="true">
             <g transform="rotate(-25 280 180)" stroke="currentColor">
               <ellipse cx="280" cy="180" rx="270" ry="72" />

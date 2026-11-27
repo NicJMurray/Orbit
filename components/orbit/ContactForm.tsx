@@ -68,7 +68,7 @@ export function ContactForm({ initialSent = false, initialInterest }: { initialS
             <svg width="29" height="29" viewBox="0 0 24 24" fill="none"><path d="m5 12 4 4L19 6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
           </span>
           <h3 tabIndex={-1} ref={successHeading}>Enquiry received.</h3>
-          <p>Thanks for getting in touch. We’ll respond to the email you’ve provided.</p>
+          <p>We’ll reply by email.</p>
           <button className="underlink" type="button" onClick={() => {
             setSent(false);
             if (new URL(window.location.href).searchParams.has("sent")) window.history.replaceState(null, "", "/contact#contact");
@@ -77,7 +77,6 @@ export function ContactForm({ initialSent = false, initialInterest }: { initialS
         </div>
       ) : (
         <form className="contact-form" ref={form} onSubmit={submit} action="/api/enquiries" method="post">
-          <h3>Tell us about your project</h3>
           <div className="form-pair">
             <label htmlFor="enquiry-name">Name
               <input id="enquiry-name" name="name" autoComplete="name" required maxLength={100} placeholder="Your name" {...described("name")} />
@@ -90,10 +89,10 @@ export function ContactForm({ initialSent = false, initialInterest }: { initialS
           </div>
           <div className="form-pair">
             <label htmlFor="enquiry-company">Company or agency
-              <input id="enquiry-company" name="company" autoComplete="organization" required maxLength={140} placeholder="Company name" {...described("company")} />
+              <input id="enquiry-company" name="company" autoComplete="organization" required maxLength={140} {...described("company")} />
               {error("company")}
             </label>
-            <label htmlFor="enquiry-interest">What are you looking for?
+            <label htmlFor="enquiry-interest">Enquiry type
               <select id="enquiry-interest" name="interest" defaultValue={initialInterest ?? ""} required {...described("interest")}>
                 <option value="" disabled>Select one</option>
                 {INTERESTS.map(interest => <option key={interest} value={interest}>{interest}</option>)}
@@ -101,8 +100,8 @@ export function ContactForm({ initialSent = false, initialInterest }: { initialS
               {error("interest")}
             </label>
           </div>
-          <label htmlFor="enquiry-message">What would you like us to look at?
-            <textarea id="enquiry-message" name="message" rows={4} minLength={10} maxLength={2400} required placeholder="A bit about the account, your markets and what you want to find out." {...described("message")} />
+          <label htmlFor="enquiry-message">What should we review?
+            <textarea id="enquiry-message" name="message" rows={4} minLength={10} maxLength={2400} required placeholder="Accounts, markets and what you want to find out." {...described("message")} />
             {error("message")}
           </label>
           <div className="form-trap" aria-hidden="true"><label>Website<input name="website" type="text" tabIndex={-1} autoComplete="off" /></label></div>
